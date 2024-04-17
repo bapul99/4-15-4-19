@@ -50,6 +50,9 @@
             background-color: cadetblue;
             border-color: cadetblue;
         }
+        #me {
+            color: aquamarine;
+        }
     </style>
     <script type="module">
         // Firebase SDK 라이브러리 가져오기
@@ -110,11 +113,12 @@
     <div class="container py-5">
         <header id="header" class="d-flex justify-content-left py-3 mb-4 rounded-3">
             <ul class="nav nav-pills">
-                <li class="nav-item"><a href="메인페이지" class="nav-link active ms-2">팀 소개</a></li>
-                <li class="nav-item"><a href="민엽님 페이지" class="nav-link active">민엽님</a></li>
-                <li class="nav-item"><a href="수현님 페이지" class="nav-link active">수현님</a></li>
-                <li class="nav-item"><a href="동협님 페이지" class="nav-link active">동협님</a></li>
-                <li class="nav-item"><a href="지원님 페이지" class="nav-link active">지원님</a></li>
+                <li class="nav-item"><a href="mainpage.html" class="nav-link active ms-2">팀 소개</a></li>
+                <li class="nav-item"><a href="profile1.html" class="nav-link active">민엽님</a></li>
+                <li class="nav-item"><a href="profile2.html" class="nav-link active">수현님</a></li>
+                <li class="nav-item"><a href="profile3.html" id="me" class="nav-link active">유일</a></li>
+                <li class="nav-item"><a href="profile4.html" class="nav-link active">동협님</a></li>
+                <li class="nav-item"><a href="profile5.html" class="nav-link active">지원님</a></li>
             </ul>
         </header>
         <!-- grid / class="row" 옆으로 배치, class="col" 아래로 배치 -->
@@ -128,8 +132,8 @@
                 <div class="card mb-4">
                     <div class="card-body text-center">
                         <img id="img"
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkYvq7zWeYgf2yDxPRExBk-l4hhCzk6FyhWA&usqp=CAU"
-                            alt="profile img" class="rounded-circle img-fluid">
+                            src="./images3/profile3.jpeg"
+                            alt="profile img" class="rounded img-fluid">
                         <h5 class="my-3">채유일</h5>
                         <p class="text-muted mb-1">내일배움캠프 수강생</p>
                         <p class="text-muted mb-4">미니프로젝트 5조 팀원</p>
