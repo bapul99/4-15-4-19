@@ -90,6 +90,20 @@
         .link {
             color: black;
         }
+
+        #homes {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: left;
+        }
+
+        .home {
+            width:20px;
+            height: 20px;
+        }
+
+
     </style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -110,7 +124,7 @@
             </div>
             <div>
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="main.html" class="nav-link px-2 text-secondary">Home</a></li>
+                    <li><a id="homes" href="main.html" class="nav-link px-2 text-secondary"><img class="home" src="./profile2photo/house-door-fill.svg" alt="home SVG" />&nbsp;Home</a></li>
                 </ul>
             </div>
         </div>
@@ -122,16 +136,16 @@
         <div class="image">
             <div class="slider">
                 <div class="slide">
-                    <img src="그림1.jpg" alt="그림1">
+                    <img src="./profile2photo/pic1.jpg" alt="그림1">
                 </div>
                 <div class="slide">
-                    <img src="그림2.jpg" alt="그림2">
+                    <img src="./profile2photo/pic2.jpg" alt="그림2">
                 </div>
                 <div class="slide">
-                    <img src="그림3.jpg" alt="그림3">
+                    <img src="./profile2photo/pic3.jpg" alt="그림3">
                 </div>
                 <div class="slide">
-                    <img src="그림4.jpg" alt="그림3">
+                    <img src="./profile2photo/pic4.jpg" alt="그림3">
                 </div>
             </div>
         </div>
