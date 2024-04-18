@@ -81,11 +81,14 @@
 
     </style>
 
-    <script>
+    <script type="module">
         function changeCC(){
             $('#content').toggle();
             $('#comment').toggle();
         }
+
+        $("#content").click(changeCC);
+        $("#comment").click(changeCC);
 
         $(document).ready(function () {
             $('#content').toggle();
@@ -131,7 +134,7 @@
             <img src="./source/profile4_yun.jpg"
                 alt="person picture">
         </div>
-        <div class="content" id="content" onclick="changeCC()">
+        <div class="content" id="content">
             <h3 class="contenttitle">자기 소개</h3>
             <li>이름 : <span id="name"></span></li>
             <li>mbti : <span id="mbti"></span></li>
@@ -140,7 +143,7 @@
             <li>블로그 : <span id="blog"></span></li>
             <li>github : <span id="github"></span></li>
         </div>
-        <div class="comment" id="comment" onclick="changeCC()">
+        <div class="comment" id="comment">
             <h1>"코딩과 친해지자"</h1>
         </div>
     </div>
