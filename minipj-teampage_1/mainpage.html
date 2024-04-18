@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>우린아직어색하조 - home</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+
+        #header {
+            width: 1300px;
+            margin: 0px auto auto auto;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .introduce {
+            font-family: "Nanum Gothic", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+
+            width: 1100px;
+            margin: 50px auto auto auto;
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            justify-content: space-between;
+
+        }
+
+        .slider {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slide {
+            float: left;
+            width: 100%;
+            position: relative;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        .image {
+            width: 500px;
+        }
+
+        .text {
+            width: 500px;
+            display: flex;
+            align-content: center;
+            flex-direction: column;
+        }
+
+
+        .titlebox {
+            font-size: 24pt;
+            margin-top: 30pt;
+        }
+
+        .textbox {
+
+            position: relative;
+            top: 40px;
+
+            font-size: 15pt;
+            width: 100%;
+            line-height: 1.5;
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            justify-content: left;
+
+        }
+
+        .introducetitlebox {
+            width: 1100px;
+            margin: 50px auto auto auto;
+            display: flex;
+
+        }
+
+        .introducetitle {
+            position: absolute;
+            background-color: white;
+            display: flex;
+            font-size: 24pt;
+            z-index: 99;
+        }
+
+        .profileouter {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .profilebox {
+            position: absolute;
+            z-index: 1;
+            width: 1100px;
+            margin: 25px auto auto auto;
+            border: 1px solid gray;
+        }
+
+        .profiles {
+            margin: 50px auto 50px auto;
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            justify-content: space-evenly;
+        }
+
+        .name {
+            text-align: center;
+            margin: 20px auto 0px auto;
+            font-size: 15pt;
+        }
+
+        .namelink {
+            color: black;
+        }
+
+        .profileimages {
+            width: 100px;
+        }
+
+        .profileimage {
+            width: 100%;
+            border-radius: 50px;
+        }
+
+        .link {
+            color: black;
+        }
+
+        #homes {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: left;
+        }
+
+        .home {
+            width: 20px;
+        }
+
+        .commentouter {
+            width: 1100px;
+            margin: 320px auto auto auto;
+        }
+
+        .btn {
+            background-color: cadetblue;
+            border-color: cadetblue;
+        }
+
+        .btn:hover {
+            color: wheat;
+            background-color: cadetblue;
+            border-color: cadetblue;
+        }
+
+        #me {
+            color: aquamarine;
+        }
+
+        #box {
+            background-color: #eee;
+            height: 3rem;
+        }
+
+        #boxContens {
+            padding-top: 5px;
+            padding-left: 15px;
+        }
+
+        .scroll {
+            overflow-y: scroll;
+            scroll-behavior: smooth;
+            height: 250px;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: #eee;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script type="module">
+        // Firebase SDK 라이브러리 가져오기
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+        import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+        import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+        import { getDocs, orderBy, query } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+
+        // Firebase 구성 정보 설정
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyBVZQnKPPINyICCW3vOtmL4TkbZHhCfJRg",
+            authDomain: "sparta-c6a4e.firebaseapp.com",
+            projectId: "sparta-c6a4e",
+            storageBucket: "sparta-c6a4e.appspot.com",
+            messagingSenderId: "1010630195226",
+            appId: "1:1010630195226:web:7987b7f892090658ae79a3",
+            measurementId: "G-6LW2VMJZJ8",
+        };
+
+        // Firebase 인스턴스 초기화
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        // 메시지 보내기, 데이터 베이스 정렬위해 타임스탬프 찍어주기
+        $('#sendMsg').click(async function () {
+            let username = $('#recipient-name').val();
+            let massage = $('#message-text').val();
+            let doc = {
+                'username': username,
+                'massage': massage,
+                timestamp: new Date()
+            };
+            await addDoc(collection(db, "comments"), doc);
+            alert(" 저장 완료");
+            window.location.reload();
+        });
+        // 파이어베이스 데이터
+        let docs = collection(db, "comments");
+        // 데이터 시간 순서로 정렬해서 가져오기
+        let result = await getDocs(query(docs, orderBy("timestamp", "desc")));
+        result.forEach((doc) => {
+            let row = doc.data();
+            let username = row["username"];
+            let massage = row["massage"];
+            console.log(username, massage)
+            //불러온 데이터 코멘트 박스로 집어넣기
+            let temp_html = `
+                                <div id="box" class="mb-2 rounded-5">
+                                    <div id="boxContens">
+                                        <div id="username" class="d-flex justify-content-between">
+                                            <strong class="text-gray-dark">${username}</strong>
+                                        </div>
+                                        <div id="massage">
+                                            <span class="d-block">${massage}</span>
+                                        </div>
+                                    </div>
+                                </div>`
+            $("#commentsbox").append(temp_html);
+        });
+    </script>
+
+</head>
+
+<body>
+    <header id="header" class="p-3 text-bg-dark">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="profile1.html" class="nav-link px-2 text-secondary">한민엽</a></li>
+                    <li><a href="profile2.html" class="nav-link px-2 text-secondary">진수현</a></li>
+                    <li><a href="profile3.html" class="nav-link px-2 text-secondary">채유일</a></li>
+                    <li><a href="profile4.html" class="nav-link px-2 text-secondary">윤동협</a></li>
+                    <li><a href="profile5.html" class="nav-link px-2 text-secondary">유지원</a></li>
+                </ul>
+            </div>
+            <div>
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li class="tomypage"><a id="homes" href="mainpage.html" class="nav-link px-2 text-secondary"><img
+                                class="home" src="./profile2photo/home.png" alt="home SVG" />&nbsp;Home</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+    </header>
+
+
+    <div class="introduce">
+        <div class="image">
+            <div class="slider">
+                <div class="slide">
+                    <img src="./teamphoto/team.jpg" alt="팀사진">
+                </div>
+            </div>
+        </div>
+        <div class="text">
+            <div class="titlebox">
+                <p class="teamname">우린 아직 어색하조</p>
+            </div>
+            <div class="textbox">
+                <p> 소개글 적기 tjkf;lasfjlk;adsjf ak;das;lfhkladsgh;sa hfkl;dsahfksdlafn;asdfnk;l </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="introducetitlebox">
+        <p class="introducetitle">&nbsp;&nbsp;팀원소개&nbsp;&nbsp;&nbsp;</p>
+    </div>
+
+    <div class="profileouter">
+        <div class="profilebox">
+            <div class="profiles">
+                <div class="proflie">
+                    <div class="profileimages">
+                        <img class="profileimage" src="./teamphoto/teamprofile1.jpg" alt="그림1">
+                    </div>
+                    <div class="profilename">
+                        <p class="name"><a class="namelink" href="profile1.html">한민엽</a></p>
+                    </div>
+                </div>
+                <div class="proflie">
+                    <div class="profileimages">
+                        <img class="profileimage" src="./teamphoto/teamprofile2.jpg" alt="그림1">
+                    </div>
+                    <div class="profilename">
+                        <p class="name"><a class="namelink" href="profile2.html">진수현</a></p>
+                    </div>
+                </div>
+                <div class="proflile">
+                    <div class="profileimages">
+                        <img class="profileimage" src="./teamphoto/teamprofile3.jpg" alt="그림1">
+                    </div>
+                    <div class="profilename">
+                        <p class="name"><a class="namelink" href="profile3.html">채유일</a></p>
+                    </div>
+                </div>
+                <div class="proflie">
+                    <div class="profileimages">
+                        <img class="profileimage" src="./teamphoto/teamprofile4.jpg" alt="그림1">
+                    </div>
+                    <div class="profilename">
+                        <p class="name"><a class="namelink" href="profile4.html">윤동협</a></p>
+                    </div>
+                </div>
+                <div class="proflie">
+                    <div class="profileimages">
+                        <img class="profileimage" src="./teamphoto/teamprofile5.jpg" alt="그림1">
+                    </div>
+                    <div class="profilename">
+                        <p class="name"><a class="namelink" href="profile5.html">유지원</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="commentouter">
+        <div class="row">
+            <!-- 코멘트 버튼, 모달창 -->
+            <div class="comment-button">
+                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                    data-bs-whatever="@mdo">코멘트 남기기</button>
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">뭐든 말해보아요!</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">닉네임</label>
+                                        <input type="text" class="form-control" id="recipient-name">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="message-text" class="col-form-label">메시지</label>
+                                        <textarea class="form-control" id="message-text"></textarea>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+                                <button id="sendMsg" type="button" class="btn btn-secondary">보내기</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 코멘트 박스 -->
+            <div>
+                <div class="my-3 p-3 bg-body rounded shadow-sm">
+                    <h6 class="border-bottom pb-2 mb-0">인사해 주세요!</h6>
+                    <div class="row d-flex text-body-secondary pt-3">
+                        <div class="px-2 scroll">
+                            <div id="commentsbox" class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    </div>
+
+
+    </div>
+
+
+</body>
+
+</html>
