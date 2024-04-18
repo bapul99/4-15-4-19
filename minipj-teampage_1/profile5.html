@@ -24,7 +24,7 @@
             flex-direction: column;
             align-items: center;
             gap: 30px;
-            max-width: 600px; /* 너비를 900px로 설정, 큰 화면에 적합하도록 조정 */
+            max-width: 600px; /* 너비를 600px로 설정, 큰 화면에 적합하도록 조정 */
             margin: 0 auto;
             padding: 20px;
             width: 100%;
@@ -108,7 +108,7 @@
             }
 
             .buttons {
-                display: none;
+                display: none; /* 768px 이하일 때, .buttons 의 클래스 요소를 숨김 작은 화면에 버튼 표시되지 않음 */
             }
         }
     </style>
