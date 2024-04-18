@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>우린아직어색하조-윤동협's profile</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -12,6 +12,20 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gothic+A1:wght@700&display=swap');
+
+        body{
+            font-family: "Do Hyeon", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 20px;
+        }
+
+        .title{
+            font-family: "Gothic A1", sans-serif;
+            font-weight: 700;
+            font-style: normal;
+            font-size: 25px;
+        }
 
         .wrap {
             display: flex;
@@ -45,11 +59,6 @@
             margin-bottom: 50px;
             margin-right: 20px;
 
-            font-family: "Do Hyeon", sans-serif;
-            font-weight: 400;
-            font-style: normal;
-            font-size: 17px;
-
             cursor: pointer;
         }
 
@@ -58,7 +67,7 @@
         }
 
         .contenttitle {
-            height: 40px;
+            height: 50px;
             padding: 10px 0px 10px 10px;
             border-bottom: 2px solid grey;
             border-top-left-radius: 10px;
@@ -67,7 +76,7 @@
             font-family: "Gothic A1", sans-serif;
             font-weight: 700;
             font-style: normal;
-            font-size: 20px;
+            font-size: 27px;
         }
 
     </style>
@@ -85,7 +94,7 @@
                 'name': '윤동협',
                 'mbti': 'INTP',
                 'pros': '맡은 일에 최선을 다함',
-                'coopstyle': '팀에 맞추는 편이며 문제에 대해 같이 협력해나가는 것을 선호한다',
+                'coopstyle': '팀에 맞추는 편이며 문제에 대해 같이 협력해나가는 것을 선호함',
                 'blog': 'null',
                 'github': 'https://github.com/ydh1503'
             };
@@ -95,9 +104,8 @@
             $('#pros').text(person['pros']);
             $('#coopstyle').text(person['coopstyle']);
             $('#blog').text(person['blog']);
-            $('#github').text(person['github']);
+            $('#github').append(`<a href="${person['github']}" target="_blank">${person['github']}</a>`);
         })
-
         
     </script>
 </head>
@@ -105,16 +113,16 @@
 <body>
     <header class="d-flex flex-wrap justify-content-center py-3 mb-3 border-bottom">
         <p class="col-md-3 mb-2 mb-md-0">
-            <span class="fs-4">우린아직어색하조</span>
+            <span class="title">우린아직어색하조</span>
         </p>
 
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <li class="nav-item"><a href="./mainPage.html" class="nav-link text-secondary">Home</a></li>
-            <li class="nav-item"><a href="./profile1.html" class="nav-link text-secondary">팀원1</a></li>
-            <li class="nav-item"><a href="./profile2.html" class="nav-link text-secondary">팀원2</a></li>
-            <li class="nav-item"><a href="./profile3.html" class="nav-link text-secondary">팀원3</a></li>
-            <li class="nav-item"><a href="./profile4.html" class="nav-link active" aria-current="page">팀원4</a></li>
-            <li class="nav-item"><a href="./profile5.html" class="nav-link text-secondary">팀원5</a></li>
+            <li class="nav-item"><a href="./mainpage.html" class="nav-link text-secondary">Home</a></li>
+            <li class="nav-item"><a href="./profile1.html" class="nav-link text-secondary">한민엽</a></li>
+            <li class="nav-item"><a href="./profile2.html" class="nav-link text-secondary">진수현</a></li>
+            <li class="nav-item"><a href="./profile3.html" class="nav-link text-secondary">채유일</a></li>
+            <li class="nav-item"><a href="./profile4.html" class="nav-link active text-info">윤동협</a></li>
+            <li class="nav-item"><a href="./profile5.html" class="nav-link text-secondary">유지원</a></li>
         </ul>
         <div class="col-md-3 text-end"></div>
     </header>
