@@ -67,10 +67,11 @@
         }
 
         .commentbox {
-            width: 850px;
+            width: 20rem;
+            margin-left: 40rem;
+            margin-bottom: 5rem;
             position: relative;
-            top: 30px;
-            left: 430px;
+
         }
 
         /* background-color는 .nav-pills 붙이지 않으면 적용안됨. 찾아보기*/
@@ -112,18 +113,19 @@
 
         #box {
             background-color: #eee;
-            height: 3rem;
+            height: 3.5rem;
+            border-radius: 3rem;
         }
 
         #boxContens {
             padding-top: 5px;
-            padding-left: 15px;
+            padding-left: 20px;
         }
 
         .scroll {
             overflow-y: scroll;
             scroll-behavior: smooth;
-            height: 250px;
+            height: 12rem;
         }
 
         ::-webkit-scrollbar {
@@ -191,7 +193,7 @@
             console.log(username, massage)
             //불러온 데이터 코멘트 박스로 집어넣기
             let temp_html = `
-                                    <div id="box" class="mb-2 rounded-5">
+                                    <div id="box" class="mb-2">
                                         <div id="boxContens">
                                             <div id="username" class="d-flex justify-content-between">
                                                 <strong class="text-gray-dark">${username}</strong>
@@ -342,7 +344,7 @@
         </div>
         <!-- 코멘트 박스 -->
         <div>
-            <div class="my-3 p-3 bg-body rounded shadow-sm">
+            <div id="commentBox" class="my-3 p-3 bg-body rounded shadow-sm">
                 <h6 class="border-bottom pb-2 mb-0">인사해 주세요!</h6>
                 <div class="row d-flex text-body-secondary pt-3">
                     <div class="px-2 scroll">
