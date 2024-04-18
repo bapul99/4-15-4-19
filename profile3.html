@@ -50,8 +50,44 @@
             background-color: cadetblue;
             border-color: cadetblue;
         }
+
         #me {
             color: aquamarine;
+        }
+
+        #box {
+            background-color: #eee;
+            height: 3rem;
+        }
+
+        #boxContens {
+            padding-top: 5px;
+            padding-left: 15px;
+        }
+
+        .scroll {
+            overflow-y: scroll;
+            scroll-behavior: smooth;
+            height: 250px;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: #eee;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
         }
     </style>
     <script type="module">
@@ -89,9 +125,9 @@
             alert(" 저장 완료");
             window.location.reload();
         });
-        // 데이터베이스 가져오기
+        // 파이어베이스 데이터
         let docs = collection(db, "comments");
-        //파이어베이스 데이터 시간 순서로 정렬해서 가져오기
+        // 데이터 시간 순서로 정렬해서 가져오기
         let result = await getDocs(query(docs, orderBy("timestamp", "desc")));
         result.forEach((doc) => {
             let row = doc.data();
@@ -99,10 +135,17 @@
             let massage = row["massage"];
             console.log(username, massage)
             //불러온 데이터 코멘트 박스로 집어넣기
-            let temp_html = ` <li class="row list-group-item" >
-                                <span id="username">${username}</span>
-                                <span id="comment">${massage}</span>
-                            </li>`
+            let temp_html = `
+                            <div id="box" class="mb-2 rounded-5">
+                                <div id="boxContens">
+                                    <div id="username" class="d-flex justify-content-between">
+                                        <strong class="text-gray-dark">${username}</strong>
+                                    </div>
+                                    <div id="massage">
+                                        <span class="d-block">${massage}</span>
+                                    </div>
+                                </div>
+                            </div>`
             $("#commentsbox").append(temp_html);
         });
     </script>
@@ -131,16 +174,30 @@
                 <!-- 좌상단 정보 -->
                 <div class="card mb-4">
                     <div class="card-body text-center">
-                        <img id="img"
-                            src="./images3/profile3.jpeg"
-                            alt="profile img" class="rounded img-fluid">
+                        <img id="img" src="./images3/profile3.jpeg" alt="profile img" class="rounded img-fluid">
                         <h5 class="my-3">채유일</h5>
                         <p class="text-muted mb-1">내일배움캠프 수강생</p>
                         <p class="text-muted mb-4">미니프로젝트 5조 팀원</p>
                     </div>
                 </div>
-                <!-- 좌하단 정보 -->
+                <!-- 좌하단 정보 - 비워둠-->
+                <div class="card mb-4 mb-lg-0">
+                    <div class="card-body p-0">
+                        <ul class="list-group list-group-flush rounded-3">
+                            <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                                <i class="fas fa-globe fa-lg text-warning"></i>
+                                <a href="https://velog.io/@romesway"
+                                    class="nav-link text-muted active mb-0">https://velog.io/@romesway</a>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                                <i class="fab fa-github fa-lg" style="color: #333333;"></i>
+                                <a href="https://github.com/romesway"
+                                    class="nav-link text-muted active mb-0">https://github.com/romesway</a>
+                            </li>
 
+                        </ul>
+                    </div>
+                </div>
             </div>
             <!-- 우측 프로필 -->
             <div class="col-lg-8">
@@ -185,19 +242,10 @@
                         <hr>
                         <div class="row">
                             <div class="col-sm-3">
-                                <p class="mb-0">Blog</p>
+                                <p class="mb-0">TMI</p>
                             </div>
                             <div class="col-sm-9">
-                                <p class="text-muted mb-0">https://velog.io/@romesway</p>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <p class="mb-0">Github</p>
-                            </div>
-                            <div class="col-sm-9">
-                                <p class="text-muted mb-0">https://github.com/romesway</p>
+                                <p class="text-muted mb-0">투구게는 귀엽다</p>
                             </div>
                         </div>
                     </div>
@@ -240,8 +288,15 @@
                     </div>
                     <!-- 코멘트 박스 -->
                     <div>
-                        <ul id="commentsbox" class="list-group mt-3">
-                        </ul>
+                        <div class="my-3 p-3 bg-body rounded shadow-sm">
+                            <h6 class="border-bottom pb-2 mb-0">인사해 주세요!</h6>
+                            <div class="row d-flex text-body-secondary pt-3">
+                                <div class="px-2 scroll">
+                                    <div id="commentsbox" class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
