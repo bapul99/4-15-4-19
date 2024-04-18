@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>우린아직어색하조 - home</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+
+        #header {
+            width: 1300px;
+            margin: 0px auto auto auto;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .introduce {
+            font-family: "Nanum Gothic", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+
+            width: 1100px;
+            margin: 50px auto auto auto;
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            justify-content: space-between;
+
+        }
+
+        .slider {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slide {
+            float: left;
+            width: 100%;
+            position: relative;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        .image {
+            width: 500px;
+        }
+
+        .text {
+            width: 500px;
+            display: flex;
+            align-content: center;
+            flex-direction: column;
+        }
+
+
+        .titlebox {
+            font-size: 24pt;
+            margin-top: 30pt;
+        }
+
+        .textbox {
+
+            position: relative;
+            top: 40px;
+
+            font-size: 15pt;
+            width: 100%;
+            line-height: 1.5;
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            justify-content: left;
+
+        }
+
+        .introducetitlebox {
+            width: 1100px;
+            margin: 50px auto auto auto;
+            display: flex;
+
+        }
+
+        .introducetitle {
+            position: absolute;
+            background-color: white;
+            display: flex;
+            font-size: 24pt;
+            z-index: 99;
+        }
+
+        .profileouter {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .profilebox {
+            position: absolute;
+            z-index: 1;
+            width: 1100px;
+            margin: 25px auto auto auto;
+            border: 1px solid gray;
+        }
+
+        .profiles {
+            margin: 50px auto 50px auto;
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            justify-content: space-evenly;
+        }
+
+        .name {
+            text-align: center;
+            margin: 20px auto 0px auto;
+            font-size: 15pt;
+        }
+
+        .namelink {
+            color: black;
+        }
+
+        .profileimages {
+            width: 100px;
+        }
+
+        .profileimage {
+            width: 100%;
+            border-radius: 50px;
+        }
+
+        .link {
+            color: black;
+        }
+
+        #homes {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: left;
+        }
+
+        .home {
+            width: 20px;
+        }
+
+        .commentouter {
+            width: 1100px;
+            margin: 320px auto auto auto;
+            background-color: green;
+        }
+
+
+
+
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <header id="header" class="p-3 text-bg-dark">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="profile1.html" class="nav-link px-2 text-secondary">한민엽</a></li>
+                    <li><a href="profile2.html" class="nav-link px-2 text-secondary">진수현</a></li>
+                    <li><a href="profile3.html" class="nav-link px-2 text-secondary">채유일</a></li>
+                    <li><a href="profile4.html" class="nav-link px-2 text-secondary">윤동협</a></li>
+                    <li><a href="profile5.html" class="nav-link px-2 text-secondary">유지원</a></li>
+                </ul>
+            </div>
+            <div>
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li class="tomypage"><a id="homes" href="mainpage.html" class="nav-link px-2 text-secondary"><img
+                                class="home" src="./profile2photo/home.png" alt="home SVG" />&nbsp;Home</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+    </header>
+
+
+    <div class="introduce">
+        <div class="image">
+            <div class="slider">
+                <div class="slide">
+                    <img src="./teamphoto/team.jpg" alt="팀사진">
+                </div>
+            </div>
+        </div>
+        <div class="text">
+            <div class="titlebox">
+                <p class="teamname">우린 아직 어색하조</p>
+            </div>
+            <div class="textbox">
+                <p> 소개글 적기 tjkf;lasfjlk;adsjf ak;das;lfhkladsgh;sa hfkl;dsahfksdlafn;asdfnk;l </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="introducetitlebox">
+        <p class="introducetitle">&nbsp;&nbsp;팀원소개&nbsp;&nbsp;&nbsp;</p>
+    </div>
+
+    <div class="profileouter">
+        <div class="profilebox">
+            <div class="profiles">
+                <div class="proflie">
+                    <div class="profileimages">
+                        <img class="profileimage" src="./teamphoto/teamprofile1.jpg" alt="그림1">
+                    </div>
+                    <div class="profilename">
+                        <p class="name"><a class="namelink" href="profile1.html">한민엽</a></p>
+                    </div>
+                </div>
+                <div class="proflie">
+                    <div class="profileimages">
+                        <img class="profileimage" src="./teamphoto/teamprofile2.jpg" alt="그림1">
+                    </div>
+                    <div class="profilename">
+                        <p class="name"><a class="namelink" href="profile2.html">진수현</a></p>
+                    </div>
+                </div>
+                <div class="proflile">
+                    <div class="profileimages">
+                        <img class="profileimage" src="./teamphoto/teamprofile3.jpg" alt="그림1">
+                    </div>
+                    <div class="profilename">
+                        <p class="name"><a class="namelink" href="profile3.html">채유일</a></p>
+                    </div>
+                </div>
+                <div class="proflie">
+                    <div class="profileimages">
+                        <img class="profileimage" src="./teamphoto/teamprofile4.jpg" alt="그림1">
+                    </div>
+                    <div class="profilename">
+                        <p class="name"><a class="namelink" href="profile4.html">윤동협</a></p>
+                    </div>
+                </div>
+                <div class="proflie">
+                    <div class="profileimages">
+                        <img class="profileimage" src="./teamphoto/teamprofile5.jpg" alt="그림1">
+                    </div>
+                    <div class="profilename">
+                        <p class="name"><a class="namelink" href="profile5.html">유지원</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="commentouter">
+        댓글 넣을 자리
+
+
+    </div>
+
+
+</body>
+
+</html>
